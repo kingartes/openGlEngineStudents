@@ -1,1 +1,1 @@
-# openGlEngineStudentі
+# openGlEngineStudent
