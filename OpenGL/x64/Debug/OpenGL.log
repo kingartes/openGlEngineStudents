@@ -1,7 +1,6 @@
-﻿  triangle.cpp
-  draw.cpp
-C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\OpenGL\draw.cpp(72,48): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
+﻿  square.cpp
+C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\OpenGL\figures\square.cpp(65,75): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
   main.cpp
+C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\OpenGL\main.cpp(24,59): warning C4305: инициализация: усечение из "double" в "float"
   Создание кода...
-LINK : warning LNK4098: сшсышюЄхър яю єьюыўрэш■ "MSVCRT" ъюэЇышъЄєхЄ ё шёяюы№чютрэшхь фЁєушї сшсышюЄхъ; шёяюы№чєщЄх /NODEFAULTLIB:library
   OpenGL.vcxproj -> C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\x64\Debug\OpenGL.exe

@@ -3,12 +3,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "../shaders/Shader.h"
-
+#include "figures/square.hpp"
 GLFWwindow* window;
-unsigned int VBO, VAO;
 unsigned int SCR_WIDTH, SCR_HEIGHT;
 
-int InitApp(std::vector<float> vertices)
+int InitApp()
 {
 	// glfw: initialize and configure
 	// ------------------------------
@@ -40,26 +39,10 @@ int InitApp(std::vector<float> vertices)
 		return -1;
 	}
 
-	// set up vertex data (and buffer(s)) and configure vertex attributes
-	// ------------------------------------------------------------------
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-
-	glBindVertexArray(VAO);
-
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
-
-		// position attribute
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		// color attributete
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
 	return 0;
 }
 
-int Rendering(std::vector<float> vertices)
+int Rendering(DrawTriangles& tr, DrawSquare& sq)
 {
 	Shader shader("shaders/Vertex.vs", "shaders/Pixel.ps");
 	while (!glfwWindowShouldClose(window))
@@ -68,15 +51,13 @@ int Rendering(std::vector<float> vertices)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		shader.use();
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+		tr.useBuffers();
+		sq.useBuffers();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-
+	tr.deleteBuffers();
+	sq.deleteBuffers();
 	glfwTerminate();
 	return 0;
 }

@@ -134,12 +134,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="figures\square.cpp" />
     <ClCompile Include="figures\triangle.cpp" />
     <ClCompile Include="includes\glad\glad.c" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="figures\square.hpp" />
     <ClInclude Include="figures\triangle.hpp" />
     <ClInclude Include="includes\glad\glad.h" />
     <ClInclude Include="shaders\Shader.h" />

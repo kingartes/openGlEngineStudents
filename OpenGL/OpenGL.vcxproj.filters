@@ -28,6 +28,9 @@
     <ClCompile Include="draw.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="figures\square.cpp">
+      <Filter>figures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\glad\glad.h">
@@ -38,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="shaders\Shader.h">
       <Filter>shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="figures\square.hpp">
+      <Filter>figures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
