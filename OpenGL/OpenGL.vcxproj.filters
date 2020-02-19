@@ -31,6 +31,9 @@
     <ClCompile Include="figures\square.cpp">
       <Filter>figures</Filter>
     </ClCompile>
+    <ClCompile Include="test-json.c">
+      <Filter>main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\glad\glad.h">

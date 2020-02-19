@@ -1,6 +1,4 @@
-﻿  square.cpp
-C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\OpenGL\figures\square.cpp(65,75): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
-  main.cpp
-C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\OpenGL\main.cpp(24,59): warning C4305: инициализация: усечение из "double" в "float"
-  Создание кода...
-  OpenGL.vcxproj -> C:\Users\vladi\Documents\AllOpenGLs\openGlEngineStudents\x64\Debug\OpenGL.exe
+﻿  test-json.c
+D:\Development\openGlEngineStudents\OpenGL\includes\json-c\json_config.h.win32(3,1): error C2059: синтаксическая ошибка: if
+D:\Development\openGlEngineStudents\OpenGL\test-json.c(12,1): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : см. объявление "fopen"

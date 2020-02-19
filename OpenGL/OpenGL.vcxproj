@@ -139,6 +139,7 @@
     <ClCompile Include="includes\glad\glad.c" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test-json.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="figures\square.hpp" />
