@@ -5,7 +5,7 @@
 //	FILE *fp;
 //	char buffer[1024];
 //	struct json_object *parsed_json;
-//	struct json_object *name;
+//	struct json_object *название;
 //
 //	size_t i;	
 //
@@ -15,7 +15,7 @@
 //
 //	parsed_json = json_tokener_parse(buffer);
 //
-//	json_object_object_get_ex(parsed_json, "имя в json", &name);
+//	json_object_object_get_ex(parsed_json, "имя в json", &название);
 //
-//	printf(json_object_get_string(name));
+//	printf(json_object_get_string(название));
 //}
