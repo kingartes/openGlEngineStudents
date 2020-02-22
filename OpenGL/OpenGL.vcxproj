@@ -137,7 +137,6 @@
     <ClCompile Include="figures\square.cpp" />
     <ClCompile Include="figures\triangle.cpp" />
     <ClCompile Include="includes\glad\glad.c" />
-    <ClCompile Include="draw.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test-json.c" />
   </ItemGroup>

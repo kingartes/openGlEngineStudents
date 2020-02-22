@@ -25,9 +25,6 @@
     <ClCompile Include="figures\triangle.cpp">
       <Filter>figures</Filter>
     </ClCompile>
-    <ClCompile Include="draw.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
     <ClCompile Include="figures\square.cpp">
       <Filter>figures</Filter>
     </ClCompile>

@@ -1,4 +1,3 @@
-﻿  test-json.c
-D:\Development\openGlEngineStudents\OpenGL\includes\json-c\json_config.h.win32(3,1): error C2059: синтаксическая ошибка: if
-D:\Development\openGlEngineStudents\OpenGL\test-json.c(12,1): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : см. объявление "fopen"
+﻿  main.cpp
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(28,59): warning C4305: инициализация: усечение из "double" в "float"
+  OpenGL.vcxproj -> C:\Users\vladi\Documents\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
