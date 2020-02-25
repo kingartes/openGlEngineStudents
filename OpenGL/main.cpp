@@ -2,7 +2,6 @@
 #include <vector>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "../shaders/Shader.h"
 #include "figures/square.hpp"
 GLFWwindow* window;
 int InitApp();
@@ -11,12 +10,6 @@ int main()
 {
 	using glm::vec3;
 	using glm::vec4;
-	triangle check1 = 
-	{
-		vec4(-0.5, -0.5, 0.0, 1.0),
-		vec4(0.5, -0.5, 0.0, 1.0),
-		vec4(0.0, 0.5, 0.0, 1.0)
-	};
 	square check2 =
 	{
 		vec4(0.5, 0.5, 0.0, 1.0),
@@ -24,26 +17,20 @@ int main()
 		vec4(-0.5, -0.5, 0.0, 1.0),
 		vec4(-0.5, 0.5, 0.0, 1.0)
 	};
-	DrawTriangles drw = DrawTriangles(check1, color{ 1.0, 0.0, 0.0 });
-	DrawSquare drs = DrawSquare(check2, color{ 0.4, 0.0, 0.0 });
+	Square drs = Square(check2, color{ 0.4, 0.0, 0.0 });
 	if (!InitApp()) 
 	{
-		drw.setUpBuffers();
 		drs.setUpBuffers();
-		Shader shader("shaders/Vertex.vs", "shaders/Pixel.ps");
 		while (!glfwWindowShouldClose(window))
 		{
 			glClearColor(0.2f, 0.9f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			shader.use();
-			drw.useBuffers();
 			drs.useBuffers();
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 		}
 		drs.deleteBuffers();
-		drw.deleteBuffers();
 		glfwTerminate();
 	}
 	else

@@ -22,9 +22,6 @@
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="figures\triangle.cpp">
-      <Filter>figures</Filter>
-    </ClCompile>
     <ClCompile Include="figures\square.cpp">
       <Filter>figures</Filter>
     </ClCompile>
@@ -36,13 +33,13 @@
     <ClInclude Include="includes\glad\glad.h">
       <Filter>glad</Filter>
     </ClInclude>
-    <ClInclude Include="figures\triangle.hpp">
-      <Filter>figures</Filter>
-    </ClInclude>
     <ClInclude Include="shaders\Shader.h">
       <Filter>shaders</Filter>
     </ClInclude>
     <ClInclude Include="figures\square.hpp">
+      <Filter>figures</Filter>
+    </ClInclude>
+    <ClInclude Include="figures\figure.hpp">
       <Filter>figures</Filter>
     </ClInclude>
   </ItemGroup>

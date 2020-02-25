@@ -1,25 +1,28 @@
-#include "triangle.hpp"
+#include "figure.hpp"
+#include <glad/glad.h>
 
 struct square
 {
 	glm::vec4 points[4];
 };
 
-class DrawSquare
+class Square : figure
 {
 public:
-	DrawSquare();
-	DrawSquare(square t, color c);
-	~DrawSquare();
-	void add(square v, color c);
+	Square();
+	Square(square t, color c);
+	~Square();
 
+	void setShaders(const char* vs, const char* ps);
 	void setUpBuffers();
 	void useBuffers();
 	void deleteBuffers();
-
+	
 private:
 	unsigned int VAO, VBO, EBO;
-	unsigned int n;
+	const char* vs;
+	const char* vp;
+	void add(square t, color c);
 	std::vector<unsigned int> indices;
-	std::vector<float> vertex_and_colors;
+	std::vector<float> vertex;
 };

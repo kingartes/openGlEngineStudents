@@ -135,14 +135,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="figures\square.cpp" />
-    <ClCompile Include="figures\triangle.cpp" />
     <ClCompile Include="includes\glad\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test-json.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="figures\figure.hpp" />
     <ClInclude Include="figures\square.hpp" />
-    <ClInclude Include="figures\triangle.hpp" />
     <ClInclude Include="includes\glad\glad.h" />
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>

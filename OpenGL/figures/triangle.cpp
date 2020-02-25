@@ -1,27 +1,27 @@
 #include "triangle.hpp"
 #include <glad/glad.h>
 
-DrawTriangles::DrawTriangles() { vertex_and_colors = {}; }
+Triangle::Triangle() { vertex = {}; }
 
-DrawTriangles::DrawTriangles(triangle vertex, color color)
+Triangle::Triangle(triangle v)
 {
-	vertex_and_colors = {};
-	add(vertex, color);
+	vertex = {};
+	add(v);
 }
 
-DrawTriangles::~DrawTriangles()
+Triangle::~Triangle()
 {
 	deleteBuffers();
 }
 
-void DrawTriangles::add(triangle vertex, color color)
+void Triangle::add(triangle vertex, color color)
 {
 	vertex_and_colors.insert(vertex_and_colors.end(), { vertex.points[0].x, vertex.points[0].y, vertex.points[0].z, color.r, color.g, color.b });
 	vertex_and_colors.insert(vertex_and_colors.end(), { vertex.points[1].x, vertex.points[1].y, vertex.points[1].z, color.r, color.g, color.b });
 	vertex_and_colors.insert(vertex_and_colors.end(), { vertex.points[2].x, vertex.points[2].y, vertex.points[2].z, color.r, color.g, color.b });
 }
 
-void DrawTriangles::setUpBuffers()
+void Triangle::setUpBuffers()
 {
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
@@ -41,13 +41,13 @@ void DrawTriangles::setUpBuffers()
 		glEnableVertexAttribArray(1);
 }
 
-void DrawTriangles::useBuffers()
+void Triangle::useBuffers()
 {
 	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLES, 0, vertex_and_colors.size());
 }
 
-void DrawTriangles::deleteBuffers()
+void Triangle::deleteBuffers()
 {
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
