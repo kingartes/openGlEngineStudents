@@ -10,19 +10,14 @@ class Square : figure
 {
 public:
 	Square();
-	Square(square t, color c);
+	Square(square t, color c, text p);
 	~Square();
 
-	void setShaders(const char* vs, const char* ps);
 	void setUpBuffers();
 	void useBuffers();
 	void deleteBuffers();
-	
+	void setTexure(unsigned int);
+
 private:
-	unsigned int VAO, VBO, EBO;
-	const char* vs;
-	const char* vp;
-	void add(square t, color c);
-	std::vector<unsigned int> indices;
-	std::vector<float> vertex;
+	void add(square t, color c, text p);
 };

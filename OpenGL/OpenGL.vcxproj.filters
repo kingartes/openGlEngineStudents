@@ -42,6 +42,9 @@
     <ClInclude Include="figures\figure.hpp">
       <Filter>figures</Filter>
     </ClInclude>
+    <ClInclude Include="includes\stb_image.h">
+      <Filter>shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">
@@ -50,5 +53,10 @@
     <None Include="shaders\Vertex.vs">
       <Filter>shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="shrek.jpg">
+      <Filter>shaders</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 #include "../includes/glm/matrix.hpp"
 
 struct color { float r, g, b; };
+struct text { glm::vec2 t[4]; };
 
 class figure
 {
@@ -12,14 +13,25 @@ public:
 	figure() {};
 	~figure() {};
 
-	void setShaders();
+	// init buffers in memory before loop while
 	void setUpBuffers();
+
+	// use it in loop while
 	void useBuffers();
+	void setTexure(unsigned int);
+
+	// to clean memory
 	void deleteBuffers();
+
 protected:
+	// buffers
 	unsigned int VAO, VBO, EBO;
+	// if need
 	bool useEBO;
-	char* vs, vp;
+	// files names to use shaders
+	const char* vs;
+	const char* vp;
+	
 	std::vector<float> vertex;
 	std::vector<unsigned int> indices;
 };

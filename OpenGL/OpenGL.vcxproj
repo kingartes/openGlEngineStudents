@@ -143,11 +143,15 @@
     <ClInclude Include="figures\figure.hpp" />
     <ClInclude Include="figures\square.hpp" />
     <ClInclude Include="includes\glad\glad.h" />
+    <ClInclude Include="includes\stb_image.h" />
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps" />
     <None Include="shaders\Vertex.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="shrek.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
