@@ -29,12 +29,12 @@ int main()
 	if (!InitApp()) 
 	{
 		drs.setUpBuffers();
+		unsigned int texture = setTexure("container2.png");
 		while (!glfwWindowShouldClose(window))
 		{
 			glClearColor(0.2f, 0.9f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			unsigned int texture = setTexure("container2.png");
 			drs.setTexure(texture);
 			drs.useBuffers();
 

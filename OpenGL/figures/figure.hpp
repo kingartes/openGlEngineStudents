@@ -31,7 +31,7 @@ protected:
 	// files names to use shaders
 	const char* vs;
 	const char* vp;
-	
+	Shader shader;
 	std::vector<float> vertex;
 	std::vector<unsigned int> indices;
 };

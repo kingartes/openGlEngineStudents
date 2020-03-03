@@ -33,6 +33,7 @@ void Square::add(square v, color c, text te)
 
 void Square::setUpBuffers()
 {
+	shader = Shader(vs, vp);
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glBindVertexArray(VAO);
@@ -65,7 +66,6 @@ void Square::setUpBuffers()
 
 void Square::useBuffers()
 {
-	Shader shader(vs, vp);
 	shader.use();
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
