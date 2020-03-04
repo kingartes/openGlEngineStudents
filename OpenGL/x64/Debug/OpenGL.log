@@ -1,6 +1,7 @@
 ﻿  square.cpp
-C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\figures\square.cpp(79,64): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\figures\figure.hpp(36,1): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
   main.cpp
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\figures\figure.hpp(36,1): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
 C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(27,51): warning C4305: инициализация: усечение из "double" в "float"
   Создание кода...
   OpenGL.vcxproj -> C:\Users\vladi\Documents\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe

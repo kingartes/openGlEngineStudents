@@ -6,7 +6,7 @@ struct square
 	glm::vec4 points[4];
 };
 
-class Square : figure
+class Square : public figure
 {
 public:
 	Square();
@@ -16,7 +16,6 @@ public:
 	void setUpBuffers();
 	void useBuffers();
 	void deleteBuffers();
-	void setTexure(unsigned int);
 
 private:
 	void add(square t, color c, text p);

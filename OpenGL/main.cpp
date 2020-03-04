@@ -7,7 +7,7 @@
 GLFWwindow* window;
 int InitApp();
 // sets files direction and returns id
-// jpg format doesn`t work
+// jpg format doesn`t work but jpeg works
 unsigned int setTexure(char const* dir);
 
 int main()
@@ -24,7 +24,7 @@ int main()
 		vec4(-0.5, 0.5, 0.0, 1.0)
 	};
 
-	Square drs = Square(check2, color{ 0.8, 0.2, 0.0 }, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) });
+	Square drs = Square(check2, color{ 0.8, 0.2, 0.0 }, text{ vec2({ 0, 0 }), vec2({ 0, 1}), vec2({ 1, 1 }), vec2({ 1, 0  }) });
 
 	if (!InitApp()) 
 	{

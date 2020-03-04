@@ -59,9 +59,6 @@ void Square::setUpBuffers()
 		// indices attribute
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indices.size(), indices.data(), GL_DYNAMIC_DRAW);
-
-		int nrAttributes;
-		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
 }
 
 void Square::useBuffers()
@@ -72,15 +69,9 @@ void Square::useBuffers()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 }
 
-void Square::setTexure(unsigned int texture)
-{
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glDrawElements(GL_TRIANGLES, vertex.size(), GL_UNSIGNED_INT, 0);
-}
-
 void Square::deleteBuffers()
 {
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
 }
