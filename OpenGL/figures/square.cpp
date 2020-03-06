@@ -31,7 +31,7 @@ void Square::add(square v, color c, text te)
 	indices.insert(indices.end(), { 1, 2, 3 });
 }
 
-void Square::setUpBuffers()
+void figure::setUpBuffers()
 {
 	shader = Shader(vs, vp);
 	glGenVertexArrays(1, &VAO);
@@ -64,7 +64,7 @@ void Square::setUpBuffers()
 		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
 }
 
-void Square::useBuffers()
+void figure::useBuffers()
 {
 	shader.use();
 	glBindVertexArray(VAO);
@@ -72,14 +72,14 @@ void Square::useBuffers()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 }
 
-void Square::setTexure(unsigned int texture)
+void figure::setTexure(unsigned int texture)
 {
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glDrawElements(GL_TRIANGLES, vertex.size(), GL_UNSIGNED_INT, 0);
 }
 
-void Square::deleteBuffers()
+void figure::deleteBuffers()
 {
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);

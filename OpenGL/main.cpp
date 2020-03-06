@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "figures/square.hpp"
+#include <../includes/nlohmann/json.hpp>
 GLFWwindow* window;
 int InitApp();
 // sets files direction and returns id
@@ -12,6 +13,7 @@ unsigned int setTexure(char const* dir);
 
 int main()
 {
+	using json = nlohmann::json;
 	using glm::vec2;
 	using glm::vec3;
 	using glm::vec4;
@@ -24,24 +26,55 @@ int main()
 		vec4(-0.5, 0.5, 0.0, 1.0)
 	};
 
-	Square drs = Square(check2, color{ 0.8, 0.2, 0.0 }, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) });
+
+	std::ifstream i("config.json");
+	json j;
+	i >> j;
+
+	std::vector<figure*> figures;
+
+	for (json::iterator it = j["objects"].begin(); it != j["objects"].end(); ++it) {
+		if ((*it)["type"] == "square") {
+			square check = {};
+			int i = 0;
+			for (json::iterator itc = (*it)["cords"].begin(); itc != (*it)["cords"].end(); ++itc) {
+				check.points[i] = vec4((*itc)[0], (*itc)[1], (*itc)[2], (*itc)[3]);
+				i++;
+			}
+			json cl = (*it)["colors"];
+			color clr = { cl[0], cl[1], cl[2] };
+			figures.push_back(new Square(check, clr, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) }));
+		}
+	}
+
+	figure* drs = new Square(check2, color{ 0.8, 0.2, 0.0 }, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) });
 
 	if (!InitApp()) 
 	{
-		drs.setUpBuffers();
+		for(int i = 0; i < figures.size(); i++){
+			figures[i]->setUpBuffers();
+		}
+		//drs->setUpBuffers();
 		unsigned int texture = setTexure("container2.png");
 		while (!glfwWindowShouldClose(window))
 		{
 			glClearColor(0.2f, 0.9f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			drs.setTexure(texture);
-			drs.useBuffers();
+			//drs->setTexure(texture);
+			//drs->useBuffers();
+			for (int i = 0; i < figures.size(); i++) {
+				figures[i]->setTexure(texture);
+				figures[i]->useBuffers();
+			}
 
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 		}
-		drs.deleteBuffers();
+		for (int i = 0; i < figures.size(); i++) {
+			figures[i]->deleteBuffers();
+		}
+		//drs->deleteBuffers();
 		glfwTerminate();
 	}
 	else
