@@ -12,11 +12,12 @@ public:
 	Square();
 	Square(square t, color c, text p);
 	~Square();
-
+	/*
 	void setUpBuffers();
 	void useBuffers();
 	void deleteBuffers();
-
+	void setTexure(unsigned int);
+	*/
 private:
 	void add(square t, color c, text p);
 };
