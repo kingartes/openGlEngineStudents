@@ -7,9 +7,9 @@
 
 #include <../shaders/shader.h>
 #include <../camerar.h>
-#include <../Model.h>
+#include "model/Model.h"
 #include <iostream>
-# define M_PI           3.14159265358979323846f  /* pi */
+# define M_PI 3.14159265358979323846f  /* pi */
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -78,8 +78,8 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
-    Model ourModel1("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
+    Model ourModel("resources/3/scene.gltf");
+    Model ourModel1("resources/1/scene.gltf");
 
 
     // draw in wireframe

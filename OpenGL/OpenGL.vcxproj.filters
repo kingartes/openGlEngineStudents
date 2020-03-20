@@ -31,7 +31,7 @@
     <ClCompile Include="test-json.c">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
+    <ClCompile Include="model\Mesh.cpp">
       <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,13 +45,13 @@
     <ClInclude Include="includes\stb_image.h">
       <Filter>shaders</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Models</Filter>
-    </ClInclude>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="model\Mesh.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="model\Model.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">

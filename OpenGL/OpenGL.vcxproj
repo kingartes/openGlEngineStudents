@@ -106,7 +106,7 @@
       <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
       <EmbedManagedResourceFile>%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
       <PreventDllBinding>false</PreventDllBinding>
-      <AdditionalLibraryDirectories>C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\libs;C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,15 +142,15 @@
   <ItemGroup>
     <ClCompile Include="includes\glad\glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="model\Mesh.cpp" />
     <ClCompile Include="test-json.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
     <ClInclude Include="includes\glad\glad.h" />
     <ClInclude Include="includes\stb_image.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Model.h" />
+    <ClInclude Include="model\Mesh.h" />
+    <ClInclude Include="model\Model.h" />
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>

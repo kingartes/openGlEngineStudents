@@ -1,12 +1,12 @@
 ﻿  main.cpp
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\mesh.h(87,1): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(93,18): warning C4305: +=: усечение из "double" в "float"
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(96,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(180,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(181,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(185,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(186,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(188,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(189,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(198,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  OpenGL.vcxproj -> C:\Users\matro\Source\Repos\openGlEngineStudents\x64\Debug\OpenGL.exe
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(93,18): warning C4305: +=: усечение из "double" в "float"
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(96,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(180,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(181,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(185,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(186,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(188,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(189,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\main.cpp(198,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+  OpenGL.vcxproj -> C:\Users\vladi\Documents\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
