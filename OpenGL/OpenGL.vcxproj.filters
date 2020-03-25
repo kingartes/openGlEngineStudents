@@ -14,6 +14,12 @@
     <Filter Include="figures">
       <UniqueIdentifier>{0b8353ef-4ae8-475c-b4aa-65b29d2c9164}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{72d5bb60-280d-4f15-8388-357b558a0c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\utils">
+      <UniqueIdentifier>{4d84d813-8909-42a7-9934-3291acd57f4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="includes\glad\glad.c">
@@ -22,11 +28,11 @@
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-    <ClCompile Include="figures\square.cpp">
-      <Filter>figures</Filter>
-    </ClCompile>
     <ClCompile Include="test-json.c">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,15 +42,16 @@
     <ClInclude Include="shaders\Shader.h">
       <Filter>shaders</Filter>
     </ClInclude>
-    <ClInclude Include="figures\square.hpp">
-      <Filter>figures</Filter>
-    </ClInclude>
-    <ClInclude Include="figures\figure.hpp">
-      <Filter>figures</Filter>
-    </ClInclude>
     <ClInclude Include="includes\stb_image.h">
       <Filter>shaders</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="camerar.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">

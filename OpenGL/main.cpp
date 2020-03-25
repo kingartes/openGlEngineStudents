@@ -1,154 +1,199 @@
-#include <iostream>
-#define STB_IMAGE_IMPLEMENTATION
-#include <../includes/stb_image.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "figures/square.hpp"
-#include <../includes/nlohmann/json.hpp>
-GLFWwindow* window;
-int InitApp();
-// sets files direction and returns id
-// jpg format doesn`t work
-unsigned int setTexure(char const* dir);
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include <../shaders/shader.h>
+#include <../camerar.h>
+#include <../Model.h>
+#include <iostream>
+# define M_PI           3.14159265358979323846f  /* pi */
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void processInput(GLFWwindow* window);
+
+// settings
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
+
+// camera
+Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+float lastX = SCR_WIDTH / 2.0f;
+float lastY = SCR_HEIGHT / 2.0f;
+bool firstMouse = true;
+
+// timing
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
 
 int main()
 {
-	using json = nlohmann::json;
-	using glm::vec2;
-	using glm::vec3;
-	using glm::vec4;
+    // glfw: initialize and configure
+    // ------------------------------
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	square check2 =
-	{
-		vec4(0.5, 0.5, 0.0, 1.0),
-		vec4(0.5, -0.5, 0.0, 1.0),
-		vec4(-0.5, -0.5, 0.0, 1.0),
-		vec4(-0.5, 0.5, 0.0, 1.0)
-	};
-
-
-	std::ifstream i("config.json");
-	json j;
-	i >> j;
-
-	std::vector<figure*> figures;
-
-	for (json::iterator it = j["objects"].begin(); it != j["objects"].end(); ++it) {
-		if ((*it)["type"] == "square") {
-			square check = {};
-			int i = 0;
-			for (json::iterator itc = (*it)["cords"].begin(); itc != (*it)["cords"].end(); ++itc) {
-				check.points[i] = vec4((*itc)[0], (*itc)[1], (*itc)[2], (*itc)[3]);
-				i++;
-			}
-			json cl = (*it)["colors"];
-			color clr = { cl[0], cl[1], cl[2] };
-			figures.push_back(new Square(check, clr, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) }));
-		}
-	}
-
-	figure* drs = new Square(check2, color{ 0.8, 0.2, 0.0 }, text{ vec2({ 1, 0 }), vec2({ 1, 1}), vec2({ 0, 1 }), vec2({ 0, 0  }) });
-
-	if (!InitApp()) 
-	{
-		for(int i = 0; i < figures.size(); i++){
-			figures[i]->setUpBuffers();
-		}
-		//drs->setUpBuffers();
-		unsigned int texture = setTexure("container2.png");
-		while (!glfwWindowShouldClose(window))
-		{
-			glClearColor(0.2f, 0.9f, 0.3f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			//drs->setTexure(texture);
-			//drs->useBuffers();
-			for (int i = 0; i < figures.size(); i++) {
-				figures[i]->setTexure(texture);
-				figures[i]->useBuffers();
-			}
-
-			glfwSwapBuffers(window);
-			glfwPollEvents();
-		}
-		for (int i = 0; i < figures.size(); i++) {
-			figures[i]->deleteBuffers();
-		}
-		//drs->deleteBuffers();
-		glfwTerminate();
-	}
-	else
-		return -1;
-
-	return 0;
-}
-
-
-int InitApp()
-{
-	// glfw: initialize and configure
-	// ------------------------------
 #ifdef __APPLE__
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // for OSX
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
 #endif
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	int SCR_WIDTH = 800;
-	int SCR_HEIGHT = 600;
-	// glfw window creation
-	// --------------------
-	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OpenGL", NULL, NULL);
-	if (window == NULL)
-	{
-		std::cout << "Failed to create GLFW window" << std::endl;
-		glfwTerminate();
-		return -1;
-	}
-	glfwMakeContextCurrent(window);
 
-	// glad: load all OpenGL function pointers
-	// ---------------------------------------
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
-		return -1;
-	}
+    // glfw window creation
+    // --------------------
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    if (window == NULL)
+    {
+        std::cout << "Failed to create GLFW window" << std::endl;
+        glfwTerminate();
+        return -1;
+    }
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
 
-	return 0;
+    // tell GLFW to capture our mouse
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    // glad: load all OpenGL function pointers
+    // ---------------------------------------
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
+
+    // configure global opengl state
+    // -----------------------------
+    glEnable(GL_DEPTH_TEST);
+
+    // build and compile shaders
+    // -------------------------
+    Shader ourShader("shaders/Vertex.vs", "shaders/Pixel.ps");
+
+    // load models
+    // -----------
+    Model ourModel("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
+    Model ourModel1("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
+
+
+    // draw in wireframe
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+    // render loop
+    // -----------
+    float f = 0.0;
+    while (!glfwWindowShouldClose(window))
+    {
+        f += 0.01;
+        // per-frame time logic
+        // --------------------
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
+        // input
+        // -----
+        processInput(window);
+
+        // render
+        // ------
+        glClearColor(0.1f, 0.4f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        // don't forget to enable shader before setting uniforms
+        ourShader.use();
+
+        // view/projection transformations
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.GetViewMatrix();
+        ourShader.setMat4("projection", projection);
+        ourShader.setMat4("view", view);
+
+        // render the loaded model
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
+        ourShader.setMat4("model", model);
+
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, f));
+        trans = glm::rotate(trans, M_PI, glm::vec3(0.0f, 1.0f, 0.0f));
+        trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
+        ourModel.setTransform(trans);
+        ourModel.Draw(ourShader);
+
+        trans = glm::mat4(1.0f);
+        trans = glm::translate(trans, glm::vec3(0.0f, -3.0f, f-1.f));
+        ourModel1.setTransform(trans);
+        ourModel1.Draw(ourShader);
+
+        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+        // -------------------------------------------------------------------------------
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    // glfw: terminate, clearing all previously allocated GLFW resources.
+    // ------------------------------------------------------------------
+    glfwTerminate();
+    return 0;
 }
 
-unsigned int setTexure(char const* dir)
+// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
+// ---------------------------------------------------------------------------------------------------------
+void processInput(GLFWwindow* window)
 {
-	// jpg format doesn`t work
-	unsigned int texture;
-	glGenTextures(1, &texture);
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 
-	int width, height, nrComponents;
-	unsigned char* data = stbi_load(dir, &width, &height, &nrComponents, 0);
-	if (data)
-	{
-		GLenum format = GL_RGBA;;
-		if (nrComponents == 1)
-			format = GL_RED;
-		else if (nrComponents == 3)
-			format = GL_DEPTH_STENCIL;
-			
-		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+}
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+// ---------------------------------------------------------------------------------------------
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    // make sure the viewport matches the new window dimensions; note that width and
+    // height will be significantly larger than specified on retina displays.
+    glViewport(0, 0, width, height);
+}
 
-	}
-	else
-		std::cout << "Texture failed to load at path: " << dir << std::endl;
+// glfw: whenever the mouse moves, this callback is called
+// -------------------------------------------------------
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if (firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
 
-	stbi_image_free(data);
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
 
-	return texture;
+    lastX = xpos;
+    lastY = ypos;
+
+    camera.ProcessMouseMovement(xoffset, yoffset);
+}
+
+// glfw: whenever the mouse scroll wheel scrolls, this callback is called
+// ----------------------------------------------------------------------
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    camera.ProcessMouseScroll(yoffset);
 }
