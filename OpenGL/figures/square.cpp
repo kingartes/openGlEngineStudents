@@ -72,13 +72,6 @@ void figure::useBuffers()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 }
 
-void figure::setTexure(unsigned int texture)
-{
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glDrawElements(GL_TRIANGLES, vertex.size(), GL_UNSIGNED_INT, 0);
-}
-
 void figure::deleteBuffers()
 {
 	glDeleteVertexArrays(1, &VAO);

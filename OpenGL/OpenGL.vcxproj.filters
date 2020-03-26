@@ -11,14 +11,14 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{1cbc4c3f-af2f-4b7b-9731-f7bd2e19df1c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="figures">
-      <UniqueIdentifier>{0b8353ef-4ae8-475c-b4aa-65b29d2c9164}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Models">
       <UniqueIdentifier>{72d5bb60-280d-4f15-8388-357b558a0c96}</UniqueIdentifier>
     </Filter>
     <Filter Include="shaders\utils">
       <UniqueIdentifier>{4d84d813-8909-42a7-9934-3291acd57f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{4878eb6f-af66-49ba-8b56-5fa9c13e9fae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +52,21 @@
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="IScene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRealization.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IInput.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="Pause.h">
+      <Filter>scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">

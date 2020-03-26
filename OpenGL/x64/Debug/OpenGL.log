@@ -1,12 +1,12 @@
-﻿  main.cpp
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\mesh.h(87,1): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(93,18): warning C4305: +=: усечение из "double" в "float"
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(96,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(180,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(181,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(185,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(186,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(188,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(189,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\main.cpp(198,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  OpenGL.vcxproj -> C:\Users\matro\Source\Repos\openGlEngineStudents\x64\Debug\OpenGL.exe
+﻿  square.cpp
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C2653: 'glm': is not a class or namespace name
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C2143: syntax error: missing ',' before '&'
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C2653: 'glm': is not a class or namespace name
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C2143: syntax error: missing ',' before '&'
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(96,76): error C2065: 'mat': undeclared identifier
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(96,1): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(100,60): error C2065: 'value': undeclared identifier
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(100,1): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\figures\figure.hpp(39,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
