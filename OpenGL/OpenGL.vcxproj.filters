@@ -68,7 +68,9 @@
     <ClInclude Include="GameObject.h">
       <Filter>Models</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectFactory.h" />
+    <ClInclude Include="GameObjectModelLoadedFactory.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">

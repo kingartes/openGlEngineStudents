@@ -9,9 +9,9 @@
 class GameObjectModelLoadedFactory
 {
 public:
-	GameObjectModelLoadedFactory(std::vector<std::string> paths, Shader shader);
-	GameObjectModelLoadedFactory(std::string path, glm::mat4 trans, Shader shader);
-	GameObjectModelLoadedFactory(std::string path, Shader shader);
+	GameObjectModelLoadedFactory(std::vector<std::string> paths, Shader *shader);
+	GameObjectModelLoadedFactory(std::string path, glm::mat4 trans, Shader *shader);
+	GameObjectModelLoadedFactory(std::string path, Shader *shader);
 	~GameObjectModelLoadedFactory();
 
 	GameObject* load() {
@@ -21,7 +21,7 @@ public:
 		obj->setTransform(trans);
 		return obj;
 	}
-	GameObject* load(std::string path, glm::mat4 trans, Shader shader) {
+	GameObject* load(std::string path, glm::mat4 trans, Shader *shader) {
 		modelloader->loadModel(path);
 		paths.pop_back();
 		GameObject* obj = new GameObject(modelloader->getMeshes(), shader);
@@ -41,25 +41,25 @@ public:
 
 private:
 	std::vector<std::string> paths;
-	Shader shader;
+	Shader *shader;
 	glm::mat4 trans;
 	ModelLoader *modelloader;
 };
 
-inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::vector<std::string> paths, Shader shader)
+inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::vector<std::string> paths, Shader *shader)
 {
 	this->paths = paths;
 	this->modelloader = new ModelLoader();
 	this->shader = shader;
 }
 
-inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::string path, glm::mat4 trans, Shader shader) {
+inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::string path, glm::mat4 trans, Shader *shader) {
 	this->paths = std::vector<std::string>{ path };
 	this->shader = shader;
 	this->trans = trans;
 }
 
-inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::string path, Shader shader)
+inline GameObjectModelLoadedFactory::GameObjectModelLoadedFactory(std::string path, Shader *shader)
 {
 	this->paths = std::vector<std::string>{ path };
 	this->trans = glm::mat4(0);

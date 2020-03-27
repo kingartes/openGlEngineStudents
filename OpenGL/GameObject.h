@@ -32,7 +32,7 @@ public:
     vector<Mesh> meshes;
     string directory;
     bool gammaCorrection;
-    Shader shader;
+    Shader *shader;
 
     /*  Functions   */
     // constructor, expects a filepath to a 3D model.
@@ -41,12 +41,12 @@ public:
         //loadModel(path);
     }*/
     GameObject(vector<Mesh> meshes) : meshes(meshes) {}
-    GameObject(vector<Mesh> meshes, Shader shader) : meshes(meshes), shader(shader) {}
-    void setShader(Shader shader) {
+    GameObject(vector<Mesh> meshes, Shader *shader) : meshes(meshes), shader(shader) {}
+    void setShader(Shader *shader) {
         this->shader = shader;
     }
     // draws the model, and thus all its meshes
-    void Draw(Shader shader)
+    void Draw(Shader *shader)
     {
         for (unsigned int i = 0; i < meshes.size(); i++) {
             meshes[i].setTransform(trans);

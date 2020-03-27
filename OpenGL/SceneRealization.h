@@ -45,7 +45,7 @@ public:
         ourModel1 = new GameObject(md.getMeshes());*/
         //this->setControll(this);
         std::vector<string> paths = {"resources/3/scene.gltf", "resources/1/scene.gltf", "resources/2/scene.gltf"};
-        GameObjectModelLoadedFactory factory(paths);
+        GameObjectModelLoadedFactory factory(paths, ourShader);
 
         ourModels = new vector<GameObject*>();
         ourModels->push_back(factory.load());
@@ -82,7 +82,7 @@ public:
         trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
         ourModel->setTransform(trans);//*/
         for (auto it = ourModels->begin(); it != ourModels->end(); ++it) {
-            (*it)->Draw(*ourShader);
+            (*it)->Draw(ourShader);
         }
         
         /*
