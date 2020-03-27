@@ -148,12 +148,14 @@
   <ItemGroup>
     <ClInclude Include="camerar.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="includes\glad\glad.h" />
     <ClInclude Include="includes\stb_image.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Model.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Pause.h" />
     <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />

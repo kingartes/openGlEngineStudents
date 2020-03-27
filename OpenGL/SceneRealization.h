@@ -6,19 +6,19 @@
 #include "IScene.h"
 #include "IInput.h"
 #include "shaders/Shader.h"
-#include "Model.h"
+#include "GameObject.h"
 #include "shaders/shader.h"
 #include "camerar.h"
-#include "Model.h"
 #include <iostream>
+#include "ModelLoader.h"
+#include "GameObjectModelLoadedFactory.h"
 
 class SceneRealization :
 	public IScene, public IInput
 {
 private:
 	Shader *ourShader;
-	Model *ourModel;
-	Model *ourModel1;
+    std::vector<GameObject*> *ourModels;
     Camera *camera;
     float f = 0;
     const unsigned int SCR_WIDTH = 800;
@@ -37,10 +37,21 @@ public:
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
         // load models
         // -----------
-        ourModel = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
-        ourModel1 = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
-
+        //ourModel = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
+        //ourModel1 = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
+        /*ModelLoader md("resources/1/scene.gltf");
+        ourModel = new GameObject(md.getMeshes());
+        md.loadModel("resources/2/scene.gltf");
+        ourModel1 = new GameObject(md.getMeshes());*/
         //this->setControll(this);
+        std::vector<string> paths = {"resources/3/scene.gltf", "resources/1/scene.gltf", "resources/2/scene.gltf"};
+        GameObjectModelLoadedFactory factory(paths);
+
+        ourModels = new vector<GameObject*>();
+        ourModels->push_back(factory.load());
+        std::vector <GameObject*> o1 = factory.loadAll();
+        ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
+
     }
 	void IScene::draw(float deltaTime) {
         f += 0.01;
@@ -58,25 +69,38 @@ public:
         glm::mat4 view = camera->GetViewMatrix();
         ourShader->setMat4("projection", projection);
         ourShader->setMat4("view", view);
-
+        
         // render the loaded model
         glm::mat4 model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
         model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
         ourShader->setMat4("model", model);
-
-        glm::mat4 trans = glm::mat4(1.0f);
+        
+        /*glm::mat4 trans = glm::mat4(1.0f);
         trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, f));
         trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
         trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
-        ourModel->setTransform(trans);
-        ourModel->Draw(*ourShader);
-
+        ourModel->setTransform(trans);//*/
+        for (auto it = ourModels->begin(); it != ourModels->end(); ++it) {
+            (*it)->Draw(*ourShader);
+        }
+        
+        /*
+        /*for (int i = 0; i < 10; i++) {
+            ourModel->Draw(*ourShader);
+            glm::mat4 trans = glm::mat4(1.0f);
+            trans = glm::translate(trans, glm::vec3(0.0f, 10.0f*i, f));
+            trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
+            trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
+            ourModel->setTransform(trans);
+            ourModel->Draw(*ourShader);
+        }*/
+        /*
         trans = glm::mat4(1.0f);
         trans = glm::translate(trans, glm::vec3(0.0f, -3.0f, f - 1.f));
         ourModel1->setTransform(trans);
         ourModel1->Draw(*ourShader);
-
+        */
 	}
 
 	void IScene::onResize(float width, float height) {

@@ -1,12 +1,14 @@
-﻿  square.cpp
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C2653: 'glm': is not a class or namespace name
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(94,55): error C2143: syntax error: missing ',' before '&'
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C2653: 'glm': is not a class or namespace name
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(98,55): error C2143: syntax error: missing ',' before '&'
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(96,76): error C2065: 'mat': undeclared identifier
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(96,1): error C2198: 'PFNGLUNIFORMMATRIX4FVPROC': too few arguments for call
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(100,60): error C2065: 'value': undeclared identifier
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\shaders\Shader.h(100,1): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\figures\figure.hpp(39,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+﻿  main.cpp
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\mesh.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(58,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(127,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(128,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(132,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(133,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(135,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(136,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(141,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(24,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(24,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(123,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  OpenGL.vcxproj -> C:\Users\matro\Source\Repos\openGlEngineStudents\x64\Debug\OpenGL.exe

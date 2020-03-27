@@ -48,9 +48,6 @@
     <ClInclude Include="Mesh.h">
       <Filter>Models</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Models</Filter>
-    </ClInclude>
     <ClInclude Include="camerar.h" />
     <ClInclude Include="IScene.h">
       <Filter>scene</Filter>
@@ -67,6 +64,11 @@
     <ClInclude Include="Pause.h">
       <Filter>scene</Filter>
     </ClInclude>
+    <ClInclude Include="ModelLoader.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">
