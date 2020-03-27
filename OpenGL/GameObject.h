@@ -32,6 +32,7 @@ public:
     vector<Mesh> meshes;
     string directory;
     bool gammaCorrection;
+    Shader shader;
 
     /*  Functions   */
     // constructor, expects a filepath to a 3D model.
@@ -40,7 +41,10 @@ public:
         //loadModel(path);
     }*/
     GameObject(vector<Mesh> meshes) : meshes(meshes) {}
-
+    GameObject(vector<Mesh> meshes, Shader shader) : meshes(meshes), shader(shader) {}
+    void setShader(Shader shader) {
+        this->shader = shader;
+    }
     // draws the model, and thus all its meshes
     void Draw(Shader shader)
     {
@@ -48,6 +52,10 @@ public:
             meshes[i].setTransform(trans);
             meshes[i].Draw(shader);
         }
+    }
+    void Draw()
+    {
+        Draw(this->shader);
     }
 
     void setTransform(glm::mat4 trans) {
