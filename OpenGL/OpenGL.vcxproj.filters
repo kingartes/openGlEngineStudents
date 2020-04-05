@@ -48,11 +48,7 @@
     <ClInclude Include="Mesh.h">
       <Filter>Models</Filter>
     </ClInclude>
-    <ClInclude Include="camerar.h" />
     <ClInclude Include="IScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneRealization.h">
       <Filter>scene</Filter>
     </ClInclude>
     <ClInclude Include="IInput.h">
@@ -61,15 +57,20 @@
     <ClInclude Include="Game.h">
       <Filter>main</Filter>
     </ClInclude>
-    <ClInclude Include="Pause.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="GameObject.h">
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectModelLoadedFactory.h">
       <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRealization.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelLoader.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="camerar.h">
+      <Filter>main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

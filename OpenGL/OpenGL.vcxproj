@@ -156,7 +156,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="ModelLoader.h" />
-    <ClInclude Include="Pause.h" />
     <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>

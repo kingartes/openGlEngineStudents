@@ -19,13 +19,7 @@ class Game
 public:
 	Game(IScene* scene);
 	~Game();
-    void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-    {
-        scene->onResize(width, height);
-        // make sure the viewport matches the new window dimensions; note that width and
-        // height will be significantly larger than specified on retina displays.
-        glViewport(0, 0, width, height);
-    }
+
 private:
 	// settings
 	const unsigned int SCR_WIDTH = 800;
@@ -97,6 +91,15 @@ private:
         scene->Init();
         input = scene->getInput();
 	}
+
+    /* Callbacks */
+    void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+    {
+        scene->onResize(width, height);
+        // make sure the viewport matches the new window dimensions; note that width and
+        // height will be significantly larger than specified on retina displays.
+        glViewport(0, 0, width, height);
+    }
     void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     {
         input->mouse_callback(window, xpos, ypos);
