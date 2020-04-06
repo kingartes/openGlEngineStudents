@@ -31,8 +31,8 @@ public:
 
 	std::vector<GameObject*> loadAll() {
 		std::vector<GameObject*> loaded;
-		for (auto it = paths.begin(); it != paths.end(); ++it) {
-			modelloader->loadModel(paths[paths.size() - 1]);
+		for (int i = 0; i < paths.size(); i++){
+			modelloader->loadModel(paths[paths.size() - 1 - i]);
 			loaded.push_back(new GameObject(modelloader->getMeshes(), shader));
 		}
 		std::cout << loaded.size();

@@ -35,23 +35,17 @@ public:
         this->setInput(this);
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
-        // load models
-        // -----------
-        //ourModel = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
-        //ourModel1 = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
-        /*ModelLoader md("resources/1/scene.gltf");
-        ourModel = new GameObject(md.getMeshes());
-        md.loadModel("resources/2/scene.gltf");
-        ourModel1 = new GameObject(md.getMeshes());*/
-        //this->setControll(this);
-        std::vector<string> paths = {"resources/3/scene.gltf", "resources/1/scene.gltf", "resources/2/scene.gltf"};
+        
+
+        std::vector<string> paths = {"resources/1/scene.gltf", "resources/3/scene.gltf", "resources/2/scene.gltf"};
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
         ourModels = new vector<GameObject*>();
-        ourModels->push_back(factory.load());
+        //ourModels->push_back(factory.load());
+        //ourModels->push_back(factory.load());/*
         std::vector <GameObject*> o1 = factory.loadAll();
         ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
-
+        //*/
     }
 	void IScene::draw(float deltaTime) {
         f += 0.01;
@@ -63,7 +57,7 @@ public:
 
         // don't forget to enable shader before setting uniforms
         ourShader->use();
-
+        
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera->GetViewMatrix();
@@ -75,32 +69,16 @@ public:
         model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
         model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
         ourShader->setMat4("model", model);
-        
-        /*glm::mat4 trans = glm::mat4(1.0f);
-        trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, f));
-        trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
-        trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
-        ourModel->setTransform(trans);//*/
-        for (auto it = ourModels->begin(); it != ourModels->end(); ++it) {
-            (*it)->Draw(ourShader);
+        ourShader->setVec3("viewPos", glm::vec3(camera->Position.x, camera->Position.y, camera->Position.z));
+        ourShader->setVec3("lightPos", glm::vec3(10 * cos(f), 0, 10*sin(f)));
+        //camera->Position.x = 10 * cos(f);
+        //camera->Position.z = 10 * sin(f);
+
+
+        for (int i = 0; i < ourModels->size(); i++) {
+            ((GameObject*)ourModels->at(i))->Draw(ourShader);
         }
         
-        /*
-        /*for (int i = 0; i < 10; i++) {
-            ourModel->Draw(*ourShader);
-            glm::mat4 trans = glm::mat4(1.0f);
-            trans = glm::translate(trans, glm::vec3(0.0f, 10.0f*i, f));
-            trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
-            trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
-            ourModel->setTransform(trans);
-            ourModel->Draw(*ourShader);
-        }*/
-        /*
-        trans = glm::mat4(1.0f);
-        trans = glm::translate(trans, glm::vec3(0.0f, -3.0f, f - 1.f));
-        ourModel1->setTransform(trans);
-        ourModel1->Draw(*ourShader);
-        */
 	}
 
 	void IScene::onResize(float width, float height) {
