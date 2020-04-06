@@ -1,12 +1,1 @@
-﻿  main.cpp
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(95,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(96,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(100,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(101,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(103,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(104,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(109,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(98,32): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(98,25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(126,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-  OpenGL.vcxproj -> D:\Projects\C++\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
+﻿  OpenGL.vcxproj -> D:\Development\openGlEngineStudents\x64\Debug\OpenGL.exe
