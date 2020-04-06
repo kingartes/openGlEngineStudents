@@ -29,7 +29,7 @@ void main()
     vec4 objectColor = texture(texture_diffuse1, TexCoords);
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(lightPos - FragPos);
-    vec3 lightColor = vec3(0.1f, 0.1f, 0.1f);
+    vec3 lightColor = vec3(1.0f, 1.0f, 1.0f);
 
 
     float specularStrength = 0.5f;
@@ -42,6 +42,6 @@ void main()
 
     float ambientStrength = 1.0f;
 
-    FragColor = (ambientLight(lightColor, ambientStrength) + diffuseLight(vec3(1.0f, 0.0f, 0.0f), norm, lightDir) + specular) * objectColor;
+    FragColor = (ambientLight(lightColor, ambientStrength) + diffuseLight(lightColor, norm, lightDir) + specular) * objectColor;
     
 }
