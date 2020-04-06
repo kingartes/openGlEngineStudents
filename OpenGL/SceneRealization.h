@@ -12,6 +12,7 @@
 #include <iostream>
 #include "ModelLoader.h"
 #include "GameObjectModelLoadedFactory.h"
+#include "ParallelogramLoader.h"
 
 class SceneRealization :
 	public IScene, public IInput
@@ -36,8 +37,7 @@ public:
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
         
-
-        std::vector<string> paths = {"resources/1/scene.gltf", "resources/3/scene.gltf", "resources/2/scene.gltf"};
+        std::vector<string> paths = {"resources/1/scene.gltf"};
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
         ourModels = new vector<GameObject*>();
@@ -45,6 +45,8 @@ public:
         //ourModels->push_back(factory.load());/*
         std::vector <GameObject*> o1 = factory.loadAll();
         ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
+        ParallelogramLoader* m = new ParallelogramLoader(ourShader);
+        ourModels->push_back(m->getModel());
         //*/
     }
 	void IScene::draw(float deltaTime) {

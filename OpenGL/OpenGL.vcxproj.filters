@@ -72,7 +72,7 @@
     <ClInclude Include="camerar.h">
       <Filter>main</Filter>
     </ClInclude>
-    <ClInclude Include="Cube.h">
+    <ClInclude Include="ParallelogramLoader.h">
       <Filter>Models</Filter>
     </ClInclude>
   </ItemGroup>
