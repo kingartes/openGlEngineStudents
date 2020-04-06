@@ -70,32 +70,15 @@ public:
         model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
         ourShader->setMat4("model", model);
         ourShader->setVec3("viewPos", glm::vec3(camera->Position.x, camera->Position.y, camera->Position.z));
-        ourShader->setVec3("lightPos", glm::vec3(-100, 0, 0));
-        /*glm::mat4 trans = glm::mat4(1.0f);
-        trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, f));
-        trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
-        trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
-        ourModel->setTransform(trans);//*/
+        ourShader->setVec3("lightPos", glm::vec3(10 * cos(f), 0, 10*sin(f)));
+        //camera->Position.x = 10 * cos(f);
+        //camera->Position.z = 10 * sin(f);
+
+
         for (int i = 0; i < ourModels->size(); i++) {
             ((GameObject*)ourModels->at(i))->Draw(ourShader);
         }
         
-        /*
-        /*for (int i = 0; i < 10; i++) {
-            ourModel->Draw(*ourShader);
-            glm::mat4 trans = glm::mat4(1.0f);
-            trans = glm::translate(trans, glm::vec3(0.0f, 10.0f*i, f));
-            trans = glm::rotate(trans, 3.1415f, glm::vec3(0.0f, 1.0f, 0.0f));
-            trans = glm::scale(trans, glm::vec3(3.0f, 3.0f, 3.0f));
-            ourModel->setTransform(trans);
-            ourModel->Draw(*ourShader);
-        }*/
-        /*
-        trans = glm::mat4(1.0f);
-        trans = glm::translate(trans, glm::vec3(0.0f, -3.0f, f - 1.f));
-        ourModel1->setTransform(trans);
-        ourModel1->Draw(*ourShader);
-        */
 	}
 
 	void IScene::onResize(float width, float height) {
