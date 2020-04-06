@@ -35,15 +35,8 @@ public:
         this->setInput(this);
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
-        // load models
-        // -----------
-        //ourModel = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/3/scene.gltf");
-        //ourModel1 = new Model("C:/Users/matro/Source/Repos/openGlEngineStudents/OpenGL/resources/1/scene.gltf");
-        /*ModelLoader md("resources/1/scene.gltf");
-        ourModel = new GameObject(md.getMeshes());
-        md.loadModel("resources/2/scene.gltf");
-        ourModel1 = new GameObject(md.getMeshes());*/
-        //this->setControll(this);
+        
+
         std::vector<string> paths = {"resources/3/scene.gltf", "resources/1/scene.gltf", "resources/2/scene.gltf"};
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
@@ -63,7 +56,7 @@ public:
 
         // don't forget to enable shader before setting uniforms
         ourShader->use();
-
+        ourShader->setVec3("lightPos", glm::vec3(0.0f, 0.0f, 0.0f));
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera->GetViewMatrix();
