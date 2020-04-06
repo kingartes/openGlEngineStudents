@@ -27,24 +27,10 @@ using namespace std;
 class GameObject
 {
 public:
-    /*  Model Data */
-    // stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
-    vector<Mesh> meshes;
-    string directory;
-    bool gammaCorrection;
-    Shader *shader;
-
-    /*  Functions   */
-    // constructor, expects a filepath to a 3D model.
-   /* GameObject(string const& path, bool gamma = false) : gammaCorrection(gamma)
-    {
-        //loadModel(path);
-    }*/
+    GameObject();
     GameObject(vector<Mesh> meshes) : meshes(meshes) {}
     GameObject(vector<Mesh> meshes, Shader *shader) : meshes(meshes), shader(shader) {}
-    void setShader(Shader *shader) {
-        this->shader = shader;
-    }
+    void setShader(Shader *shader) { this->shader = shader; }
     // draws the model, and thus all its meshes
     void Draw(Shader *shader)
     {
@@ -53,16 +39,16 @@ public:
             meshes[i].Draw(shader);
         }
     }
-    void Draw()
-    {
-        Draw(this->shader);
-    }
+    void Draw() { Draw(this->shader); }
 
-    void setTransform(glm::mat4 trans) {
-        this->trans = trans;
-    }
+    void setTransform(glm::mat4 trans) { this->trans = trans; }
 
-private:
+protected:
+    /*  Model Data */
+    // stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
+    vector<Mesh> meshes;
+    string directory;
+    Shader* shader;
     glm::mat4 trans = glm::mat4(1.0f);
 };
 

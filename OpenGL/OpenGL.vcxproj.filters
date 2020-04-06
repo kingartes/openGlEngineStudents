@@ -72,6 +72,9 @@
     <ClInclude Include="camerar.h">
       <Filter>main</Filter>
     </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Pixel.ps">
