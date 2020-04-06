@@ -1,14 +1,1 @@
-﻿  main.cpp
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\mesh.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(51,1): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(104,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(105,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(109,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(110,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(112,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(113,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(118,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(24,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(24,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(123,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  OpenGL.vcxproj -> C:\Users\matro\Source\Repos\openGlEngineStudents\x64\Debug\OpenGL.exe
+﻿  OpenGL.vcxproj -> D:\Development\openGlEngineStudents\x64\Debug\OpenGL.exe
