@@ -83,10 +83,18 @@
     <None Include="shaders\Vertex.vs">
       <Filter>shaders</Filter>
     </None>
+    <None Include="Pixel_map.ps">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg">
       <Filter>shaders</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\4\Vertex.vs.txt">
+      <Filter>shaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>

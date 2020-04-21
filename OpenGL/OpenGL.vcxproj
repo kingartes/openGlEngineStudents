@@ -161,11 +161,15 @@
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Pixel_map.ps" />
     <None Include="shaders\Pixel.ps" />
     <None Include="shaders\Vertex.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\4\Vertex.vs.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

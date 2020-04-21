@@ -122,9 +122,6 @@ private:
             vector.x = mesh->mTangents[i].x;
             vector.y = mesh->mTangents[i].y;
             vector.z = mesh->mTangents[i].z;
-            vector.x = 0;
-            vector.y = 0;
-            vector.z = 0;
             vertex.Tangent = vector;
             // bitangent
             vector.x = mesh->mBitangents[i].x;
@@ -200,6 +197,7 @@ private:
         return textures;
     }
 };
+
 
 unsigned int TextureFromFile(const char* path, const string& directory, bool gamma)
 {

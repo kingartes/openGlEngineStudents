@@ -19,7 +19,6 @@ class Game
 public:
 	Game(IScene* scene);
 	~Game();
-
 private:
 	// settings
 	const unsigned int SCR_WIDTH = 800;
@@ -62,12 +61,12 @@ private:
         glfwSetFramebufferSizeCallback(window, framebuffer_size_func);
         auto mousefunc = [](GLFWwindow* window, double xpos, double ypos)
         {
-            static_cast<Game*>(glfwGetWindowUserPointer(window))->mouse_callback(window, xpos, ypos);
+            static_cast<Game*>(glfwGetWindowUserPointer(window))->input->mouse_callback(window, xpos, ypos);
         };
         glfwSetCursorPosCallback(window, mousefunc);
         auto scrollfunc = [](GLFWwindow* window, double xoffset, double yoffset)
         {
-            static_cast<Game*>(glfwGetWindowUserPointer(window))->mouse_callback(window, xoffset, yoffset);
+            static_cast<Game*>(glfwGetWindowUserPointer(window))->input->scroll_callback(window, xoffset, yoffset);
         };
         glfwSetScrollCallback(window, scrollfunc);
 
@@ -99,14 +98,6 @@ private:
         // make sure the viewport matches the new window dimensions; note that width and
         // height will be significantly larger than specified on retina displays.
         glViewport(0, 0, width, height);
-    }
-    void mouse_callback(GLFWwindow* window, double xpos, double ypos)
-    {
-        input->mouse_callback(window, xpos, ypos);
-    }
-    void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-    {
-        input->scroll_callback(window, xoffset, yoffset);
     }
     void processInput(GLFWwindow* window)
     {

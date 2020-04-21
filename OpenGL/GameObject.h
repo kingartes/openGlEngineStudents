@@ -29,19 +29,21 @@ class GameObject
 public:
     GameObject();
     GameObject(vector<Mesh> meshes) : meshes(meshes) {}
-    GameObject(vector<Mesh> meshes, Shader *shader) : meshes(meshes), shader(shader) {}
+    GameObject(vector<Mesh> meshes, Shader *shader) : meshes(meshes), shader(shader), trans(glm::mat4(1.0f)){}
     void setShader(Shader *shader) { this->shader = shader; }
     // draws the model, and thus all its meshes
     void Draw(Shader *shader)
     {
         for (unsigned int i = 0; i < meshes.size(); i++) {
-            meshes[i].setTransform(trans);
             meshes[i].Draw(shader);
         }
     }
     void Draw() { Draw(this->shader); }
 
     void setTransform(glm::mat4 trans) { this->trans = trans; }
+    glm::mat4 getTransform() {
+        return trans;
+    }
 
 protected:
     /*  Model Data */
