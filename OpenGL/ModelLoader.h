@@ -28,12 +28,6 @@ unsigned int TextureFromFile(const char* path, const string& directory, bool gam
 class ModelLoader
 {
 public:
-    /*  Model Data */
-    vector<Texture> textures_loaded;	// stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
-    vector<Mesh> meshes;
-    string directory;
-    bool gammaCorrection;
-
     /*  Functions   */
     // constructor, expects a filepath to a 3D model.
     ModelLoader() {
@@ -65,7 +59,12 @@ public:
         processNode(scene->mRootNode, scene);
     }
 private:
-   
+    /*  Model Data */
+    vector<Texture> textures_loaded;	// stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
+    vector<Mesh> meshes;
+    string directory;
+    bool gammaCorrection;
+
     // processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
     void processNode(aiNode* node, const aiScene* scene)
     {
@@ -123,9 +122,6 @@ private:
             vector.x = mesh->mTangents[i].x;
             vector.y = mesh->mTangents[i].y;
             vector.z = mesh->mTangents[i].z;
-            vector.x = 0;
-            vector.y = 0;
-            vector.z = 0;
             vertex.Tangent = vector;
             // bitangent
             vector.x = mesh->mBitangents[i].x;
@@ -201,6 +197,7 @@ private:
         return textures;
     }
 };
+
 
 unsigned int TextureFromFile(const char* path, const string& directory, bool gamma)
 {

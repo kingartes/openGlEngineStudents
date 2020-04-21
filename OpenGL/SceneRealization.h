@@ -12,6 +12,7 @@
 #include <iostream>
 #include "ModelLoader.h"
 #include "GameObjectModelLoadedFactory.h"
+#include "ParallelogramLoader.h"
 
 class SceneRealization :
 	public IScene, public IInput
@@ -36,19 +37,18 @@ public:
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
         
-
-        std::vector<string> paths = {"resources/1/scene.gltf", "resources/3/scene.gltf", "resources/2/scene.gltf"};
+        std::vector<string> paths = {"resources/3/scene.gltf"};
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
         ourModels = new vector<GameObject*>();
-        //ourModels->push_back(factory.load());
-        //ourModels->push_back(factory.load());/*
         std::vector <GameObject*> o1 = factory.loadAll();
         ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
+        //ParallelogramLoader* m = new ParallelogramLoader(ourShader);
+        //ourModels->push_back(m->getModel());
         //*/
     }
 	void IScene::draw(float deltaTime) {
-        f += 0.01;
+        f += 0.005;
 
         // render
         // ------
@@ -65,25 +65,30 @@ public:
         ourShader->setMat4("view", view);
         
         // render the loaded model
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
-        ourShader->setMat4("model", model);
+        
         ourShader->setVec3("viewPos", glm::vec3(camera->Position.x, camera->Position.y, camera->Position.z));
-        ourShader->setVec3("lightPos", glm::vec3(10 * cos(f), 0, 10*sin(f)));
+       
+        ourShader->setVec3("lightPos", glm::vec3(10 * cos(f), 20, 10*sin(f)));
+        ourModels->at(0)->setTransform(glm::rotate(glm::mat4(1.0f), glm::radians(f*10), glm::vec3(0.0f, f, 0.0f)));
         //camera->Position.x = 10 * cos(f);
         //camera->Position.z = 10 * sin(f);
 
 
         for (int i = 0; i < ourModels->size(); i++) {
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
+            model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
+
+            model *= ourModels->at(0)->getTransform();
+
+            ourShader->setMat4("model", model);
+
             ((GameObject*)ourModels->at(i))->Draw(ourShader);
         }
         
 	}
 
-	void IScene::onResize(float width, float height) {
-
-	}
+	void IScene::onResize(float width, float height) {}
 
     void processInput(GLFWwindow* window, float deltaTime) {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)

@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="ParallelogramLoader.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectModelLoadedFactory.h" />
     <ClInclude Include="IInput.h" />
@@ -156,16 +157,19 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="ModelLoader.h" />
-    <ClInclude Include="Pause.h" />
     <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Pixel_map.ps" />
     <None Include="shaders\Pixel.ps" />
     <None Include="shaders\Vertex.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\4\Vertex.vs.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

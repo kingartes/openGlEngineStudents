@@ -48,11 +48,7 @@
     <ClInclude Include="Mesh.h">
       <Filter>Models</Filter>
     </ClInclude>
-    <ClInclude Include="camerar.h" />
     <ClInclude Include="IScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneRealization.h">
       <Filter>scene</Filter>
     </ClInclude>
     <ClInclude Include="IInput.h">
@@ -61,14 +57,22 @@
     <ClInclude Include="Game.h">
       <Filter>main</Filter>
     </ClInclude>
-    <ClInclude Include="Pause.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="GameObject.h">
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectModelLoadedFactory.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRealization.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelLoader.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="camerar.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="ParallelogramLoader.h">
       <Filter>Models</Filter>
     </ClInclude>
   </ItemGroup>
@@ -79,10 +83,18 @@
     <None Include="shaders\Vertex.vs">
       <Filter>shaders</Filter>
     </None>
+    <None Include="Pixel_map.ps">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg">
       <Filter>shaders</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\4\Vertex.vs.txt">
+      <Filter>shaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>
