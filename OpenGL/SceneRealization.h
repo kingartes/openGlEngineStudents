@@ -13,7 +13,7 @@
 #include "ModelLoader.h"
 #include "GameObjectModelLoadedFactory.h"
 #include "ParallelogramLoader.h"
-
+#include "SpaceGenerator.h"
 class SceneRealization :
 	public IScene, public IInput
 {
@@ -31,13 +31,16 @@ private:
     // timing
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
+    std::vector<glm::vec4> *planetD;
 public:
     void IScene::Init() {
+        SpaceGenerator *generator = new SpaceGenerator();
+        planetD = generator->PlanetCoordCreate(10);
         this->setInput(this);
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
         
-        std::vector<string> paths = {"resources/3/scene.gltf"};
+        std::vector<string> paths = {"resources/4/scene.gltf"};
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
         ourModels = new vector<GameObject*>();
@@ -73,17 +76,19 @@ public:
         //camera->Position.x = 10 * cos(f);
         //camera->Position.z = 10 * sin(f);
 
+        for (int i = 0; i < planetD->size(); i++) {
 
-        for (int i = 0; i < ourModels->size(); i++) {
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
 
             model *= ourModels->at(0)->getTransform();
+            model = glm::translate(model, glm::vec3(planetD->at(i).x, planetD->at(i).y, planetD->at(i).z));
+            model = glm::scale(model, glm::vec3(planetD->at(i).w, planetD->at(i).w, planetD->at(i).w));
 
             ourShader->setMat4("model", model);
 
-            ((GameObject*)ourModels->at(i))->Draw(ourShader);
+            ((GameObject*)ourModels->at(0))->Draw(ourShader);
         }
         
 	}

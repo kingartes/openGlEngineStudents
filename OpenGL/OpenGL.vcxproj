@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="SpaceGenerator.h" />
     <ClInclude Include="ParallelogramLoader.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectModelLoadedFactory.h" />
