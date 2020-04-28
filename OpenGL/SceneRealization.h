@@ -35,7 +35,7 @@ private:
 public:
     void IScene::Init() {
         SpaceGenerator *generator = new SpaceGenerator();
-        planetD = generator->PlanetCoordCreate(10);
+        planetD = generator->PlanetCoordCreate(200);
         this->setInput(this);
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.ps");
@@ -48,10 +48,10 @@ public:
         ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
         //ParallelogramLoader* m = new ParallelogramLoader(ourShader);
         //ourModels->push_back(m->getModel());
-        //*/
+        //
     }
 	void IScene::draw(float deltaTime) {
-        f += 0.005;
+        //f += 0.005;
 
         // render
         // ------
@@ -71,10 +71,23 @@ public:
         
         ourShader->setVec3("viewPos", glm::vec3(camera->Position.x, camera->Position.y, camera->Position.z));
        
-        ourShader->setVec3("lightPos", glm::vec3(10 * cos(f), 20, 10*sin(f)));
+        ourShader->setVec3("lightPos", glm::vec3(100 * cos(f), 20, 80*sin(f)));
         ourModels->at(0)->setTransform(glm::rotate(glm::mat4(1.0f), glm::radians(f*10), glm::vec3(0.0f, f, 0.0f)));
         //camera->Position.x = 10 * cos(f);
         //camera->Position.z = 10 * sin(f);
+
+        const float x = -2.0f;
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(x, 0, x)); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
+
+        camera->Position.x = x;
+        camera->Position.y = 0;
+        camera->Position.z = x ;
+
+        ourShader->setMat4("model", model);
+
+        ((GameObject*)ourModels->at(0))->Draw(ourShader);
 
         for (int i = 0; i < planetD->size(); i++) {
 
@@ -82,7 +95,6 @@ public:
             model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
 
-            model *= ourModels->at(0)->getTransform();
             model = glm::translate(model, glm::vec3(planetD->at(i).x, planetD->at(i).y, planetD->at(i).z));
             model = glm::scale(model, glm::vec3(planetD->at(i).w, planetD->at(i).w, planetD->at(i).w));
 
@@ -90,7 +102,8 @@ public:
 
             ((GameObject*)ourModels->at(0))->Draw(ourShader);
         }
-        
+
+                
 	}
 
 	void IScene::onResize(float width, float height) {}

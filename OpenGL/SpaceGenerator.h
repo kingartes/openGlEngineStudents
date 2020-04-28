@@ -21,10 +21,10 @@ public:
         for (int i = 0; i < num; i++)
         {
             glm::vec4 temp;
-            temp.x = rndFloat(-10.00f, 10.0f);
-            temp.y = rndFloat(-10.00f, 10.0f);
-            temp.z = rndFloat(-10.00f, 10.0f);
-            temp.w = rndInt(0, 10);
+            temp.x = rndFloat(-10.00f, 80.0f);
+            temp.y = rndFloat(-28.00f, 28.0f);
+            temp.z = rndFloat(-10.00f, 80.0f);
+            temp.w = rndInt(-6, 4);
             planetD->push_back(temp);
         }
         return planetD;
