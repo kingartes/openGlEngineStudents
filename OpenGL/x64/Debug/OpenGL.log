@@ -1,17 +1,19 @@
 ﻿  main.cpp
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\ModelLoader.h(98,23): warning C4101: 'vector': unreferenced local variable
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SpaceGenerator.h(50,21): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint32_t', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SpaceGenerator.h(52,21): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint32_t', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(172,1): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(254,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(255,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(259,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(260,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(262,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(263,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\SceneRealization.h(268,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(97,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(97,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL\Game.h(118,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  OpenGL.vcxproj -> C:\Users\matro\Source\Repos\openGlEngineStudents\x64\Debug\OpenGL.exe
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(27,28): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(50,21): warning C4244: инициализация: преобразование "uint64_t" в "uint32_t", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(52,21): warning C4244: инициализация: преобразование "uint64_t" в "uint32_t", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(127,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(128,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(132,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(133,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(135,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(136,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(141,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(97,32): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(97,25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(117,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  OpenGL.vcxproj -> D:\Projects\C++\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
