@@ -30,6 +30,7 @@ public:
     /*  Functions  */
     // constructor
     Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures) : vertices(vertices), indices(indices), textures(textures) { setupMesh(); }
+    Mesh(vector<Vertex> vertices, vector<Texture> textures) : vertices(vertices), textures(textures) { setupMesh(); }
     // render the mesh
     void Draw(Shader* shader);
 

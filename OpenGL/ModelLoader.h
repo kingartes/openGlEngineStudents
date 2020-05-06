@@ -97,15 +97,15 @@ private:
             Vertex vertex;
             glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
             // positions
-            vector.x = mesh->mVertices[i].x;
-            vector.y = mesh->mVertices[i].y;
-            vector.z = mesh->mVertices[i].z;
-            vertex.Position = vector;
+            vertex.Position.x = mesh->mVertices[i].x;
+            vertex.Position.y = mesh->mVertices[i].y;
+            vertex.Position.z = mesh->mVertices[i].z;
+            //vertex.Position = vector;
             // normals
-            vector.x = mesh->mNormals[i].x;
-            vector.y = mesh->mNormals[i].y;
-            vector.z = mesh->mNormals[i].z;
-            vertex.Normal = vector;
+            vertex.Normal.x = mesh->mNormals[i].x;
+            vertex.Normal.y = mesh->mNormals[i].y;
+            vertex.Normal.z = mesh->mNormals[i].z;
+            //vertex.Normal = vector;
             // texture coordinates
             if (mesh->mTextureCoords[0]) // does the mesh contain texture coordinates?
             {
@@ -119,15 +119,15 @@ private:
             else
                 vertex.TexCoords = glm::vec2(0.0f, 0.0f);
             // tangent
-            vector.x = mesh->mTangents[i].x;
-            vector.y = mesh->mTangents[i].y;
-            vector.z = mesh->mTangents[i].z;
-            vertex.Tangent = vector;
+            vertex.Tangent.x = mesh->mTangents[i].x;
+            vertex.Tangent.y = mesh->mTangents[i].y;
+            vertex.Tangent.z = mesh->mTangents[i].z;
+            //vertex.Tangent = vector;
             // bitangent
-            vector.x = mesh->mBitangents[i].x;
-            vector.y = mesh->mBitangents[i].y;
-            vector.z = mesh->mBitangents[i].z;
-            vertex.Bitangent = vector;
+            vertex.Bitangent.x = mesh->mBitangents[i].x;
+            vertex.Bitangent.y = mesh->mBitangents[i].y;
+            vertex.Bitangent.z = mesh->mBitangents[i].z;
+            //vertex.Bitangent = vector;
             vertices.push_back(vertex);
         }
         // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
@@ -146,7 +146,6 @@ private:
         // diffuse: texture_diffuseN
         // specular: texture_specularN
         // normal: texture_normalN
-
         // 1. diffuse maps
         vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
@@ -154,7 +153,7 @@ private:
         vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
         // 3. normal maps
-        std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+        std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_NORMALS, "texture_normal");
         textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
         // 4. height maps
         std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
@@ -204,6 +203,8 @@ unsigned int TextureFromFile(const char* path, const string& directory, bool gam
     string filename = string(path);
     filename = directory + '/' + filename;
 
+    std::cout << filename << endl;
+
     unsigned int textureID;
     glGenTextures(1, &textureID);
 
@@ -238,3 +239,4 @@ unsigned int TextureFromFile(const char* path, const string& directory, bool gam
 
     return textureID;
 }
+

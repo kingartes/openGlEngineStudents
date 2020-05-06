@@ -78,15 +78,24 @@
     <ClInclude Include="SpaceGenerator.h">
       <Filter>utils</Filter>
     </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\Pixel.ps">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="shaders\Vertex.vs">
       <Filter>shaders</Filter>
     </None>
     <None Include="Pixel_map.ps">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\Pixel.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\skybox.vs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\skybox.fs">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

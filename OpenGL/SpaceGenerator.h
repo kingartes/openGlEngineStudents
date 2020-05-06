@@ -24,7 +24,7 @@ public:
             temp.x = rndFloat(-10.00f, 10.0f);
             temp.y = rndFloat(-10.00f, 10.0f);
             temp.z = rndFloat(-10.00f, 10.0f);
-            temp.w = rndInt(0, 10);
+            temp.w = rndFloat(0.1f, 1.0f);
             planetD->push_back(temp);
         }
         return planetD;

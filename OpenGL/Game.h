@@ -110,6 +110,7 @@ Game::Game(IScene* scene)
 {
     this->scene = scene;
     initialization();
+    std::cout << "init complete" << endl;
     while (!glfwWindowShouldClose(window))
     {
         // per-frame time logic

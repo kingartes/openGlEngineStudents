@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SpaceGenerator.h" />
     <ClInclude Include="ParallelogramLoader.h" />
     <ClInclude Include="Game.h" />
@@ -163,7 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pixel_map.ps" />
-    <None Include="shaders\Pixel.ps" />
+    <None Include="shaders\Pixel.fs" />
+    <None Include="shaders\skybox.fs" />
+    <None Include="shaders\skybox.vs" />
     <None Include="shaders\Vertex.vs" />
   </ItemGroup>
   <ItemGroup>
