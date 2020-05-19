@@ -17,16 +17,36 @@ class SpaceGenerator {
 public:
     std::vector<glm::vec4>* PlanetCoordCreate(int num)
     {
-        std::vector<glm::vec4> *planetD = new std::vector<glm::vec4>();
-        for (int i = 0; i < num; i++)
-        {
-            glm::vec4 temp;
-            temp.x = rndFloat(-10.00f, 80.0f);
-            temp.y = rndFloat(-28.00f, 28.0f);
-            temp.z = rndFloat(-10.00f, 80.0f);
-            temp.w = rndInt(-6, 4);
-            planetD->push_back(temp);
-        }
+        int nSectorX = num * 10;
+        int nSectorY = num * 10;
+        int nSectorZ = num * 100;
+
+        std::vector<glm::vec4>* planetD = new std::vector<glm::vec4>();
+        for (int x = 0; x < nSectorX; x += 10)
+            for (int y = 0; y < nSectorY; y += 10)
+                for (int z = 0; z < nSectorZ; z += 50)
+                {
+                    if (num < 0)
+                    {
+                        break;
+                    }
+                    glm::vec4 temp;
+                    if (PlanetExits() && num >= 0)
+                    {
+                        cout << "exists" << endl;
+                        temp.x = x;
+                        temp.y = y;
+                        temp.z = z;
+                        temp.w = rndFloat(0.0f, 3.0f);
+                        planetD->push_back(temp);
+                        num -= 1;
+                        break;
+                    }
+                }
+
+
+
+
         return planetD;
     }
 private:
@@ -52,7 +72,11 @@ private:
         uint32_t m2 = (tmp >> 32) ^ tmp;
         return m2;
     }
-
-
+    bool PlanetExits()
+    {
+        int n = rndInt(0, 30);
+        return (n == 1 ? true : false);
+        ;
+    }
 };
 
