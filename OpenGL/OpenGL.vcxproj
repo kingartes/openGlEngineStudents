@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -106,7 +106,7 @@
       <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
       <EmbedManagedResourceFile>%(EmbedManagedResourceFile)</EmbedManagedResourceFile>
       <PreventDllBinding>false</PreventDllBinding>
-      <AdditionalLibraryDirectories>C:\Users\vladi\Documents\AllOpenGLs\MainProject\OpenGL\libs;C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\matro\Source\Repos\openGlEngineStudents\OpenGL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,23 +142,40 @@
   <ItemGroup>
     <ClCompile Include="includes\glad\glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="model\Mesh.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="test-json.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="MenuScene.h" />
+    <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="SpaceGenerator.h" />
+    <ClInclude Include="ParallelogramLoader.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObjectModelLoadedFactory.h" />
+    <ClInclude Include="IInput.h" />
     <ClInclude Include="includes\glad\glad.h" />
     <ClInclude Include="includes\stb_image.h" />
-    <ClInclude Include="model\Mesh.h" />
-    <ClInclude Include="model\Model.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="ModelLoader.h" />
+    <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />
+    <ClInclude Include="Square.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\Pixel.ps" />
+    <None Include="Pixel_map.ps" />
+    <None Include="shaders\Pixel.fs" />
+    <None Include="shaders\skybox.fs" />
+    <None Include="shaders\skybox.vs" />
     <None Include="shaders\Vertex.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\4\Vertex.vs.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

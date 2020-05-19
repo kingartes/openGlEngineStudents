@@ -1,12 +1,7 @@
 #pragma once
-#include <glad/glad.h> // holds all OpenGL type declarations
-
-#include "../includes/glm/glm.hpp"
-#include "../includes/glm/gtc/matrix_transform.hpp"
-
+#include <glm/gtc/matrix_transform.hpp>
 #include <../shaders/shader.h>
 
-#include <string>
 #include <vector>
 using std::vector;
 using std::string;
@@ -34,11 +29,10 @@ class Mesh {
 public:
     /*  Functions  */
     // constructor
-    Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures);
-
+    Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures) : vertices(vertices), indices(indices), textures(textures) { setupMesh(); }
+    Mesh(vector<Vertex> vertices, vector<Texture> textures) : vertices(vertices), textures(textures) { setupMesh(); }
     // render the mesh
-    void Draw(Shader shader);
-    void setTransform(glm::mat4 trans) { this->trans = trans; }
+    void Draw(Shader* shader);
 
 private:
     /*  Mesh Data  */
@@ -47,10 +41,9 @@ private:
     vector<Texture> textures;
 
     /*  Render data  */
-    unsigned int VBO, EBO, VAO;
-    glm::mat4 trans = glm::mat4(1.0f);
+    unsigned int VAO, VBO, EBO;
+    glm::mat4 transform;
 
-    /*  Functions    */
     // initializes all the buffer objects/arrays
     void setupMesh();
 };
