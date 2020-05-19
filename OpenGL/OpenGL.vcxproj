@@ -95,7 +95,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,13 +161,18 @@
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="FontLoader.h" />
+    <ClInclude Include="TextLoaderFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Pixel_map.ps" />
     <None Include="shaders\Pixel.fs" />
+    <None Include="shaders\PixelText.ps" />
     <None Include="shaders\skybox.fs" />
     <None Include="shaders\skybox.vs" />
     <None Include="shaders\Vertex.vs" />
+    <None Include="shaders\VertexText.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="shrek.jpg" />

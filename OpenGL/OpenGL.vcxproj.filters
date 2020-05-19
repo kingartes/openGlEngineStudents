@@ -81,6 +81,15 @@
     <ClInclude Include="SkyBox.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="TextLoaderFactory.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FontLoader.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Vertex.vs">
@@ -96,6 +105,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\skybox.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\PixelText.ps">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\VertexText.vs">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
