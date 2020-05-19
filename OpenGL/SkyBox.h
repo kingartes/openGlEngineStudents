@@ -17,40 +17,7 @@ public:
         Texture t;
         t.type = "texture_skybox";
         t.id = loadCubemap(faces);
-		/*
-		vector<Vertex> vertices{
-			Vertex{glm::vec3(-1.0, -1.0,  1.0)},
-			Vertex{glm::vec3(1.0, -1.0,  1.0)},
-			Vertex{glm::vec3(1.0,  1.0,  1.0)},
-			Vertex{glm::vec3(-1.0,  1.0,  1.0)},
 
-			Vertex{glm::vec3(-1.0, -1.0, -1.0)},
-			Vertex{glm::vec3(1.0, -1.0, -1.0)},
-			Vertex{glm::vec3(1.0,  1.0, -1.0)},
-			Vertex{glm::vec3(-1.0,  1.0, -1.0)},
-		};
-		vector<unsigned int> indices{
-			// front
-			0, 1, 2,
-			2, 3, 0,
-			// right
-			1, 5, 6,
-			6, 2, 1,
-			// back
-			7, 6, 5,
-			5, 4, 7,
-			// left
-			4, 0, 3,
-			3, 7, 4,
-			// bottom
-			4, 5, 1,
-			1, 0, 4,
-			// top
-			3, 2, 6,
-			6, 7, 3
-		};
-
-        Mesh mesh(vertices, indices, vector<Texture>{t});*/
         ParallelogramLoader loader(&shader, vector<Texture>{t});
         return loader.getModel();//new GameObject(vector<Mesh>{mesh});
 	}

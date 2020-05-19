@@ -81,6 +81,10 @@
     <ClInclude Include="SkyBox.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Vertex.vs">

@@ -3,10 +3,8 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include "IScene.h"
-#include "SceneRealization.h"
 #include "IInput.h"
-
+#include "IScene.h"
 
     void framebuffer_size_callback(GLFWwindow* window, int width, int height);
     void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -18,6 +16,8 @@ class Game
 {
 public:
 	Game(IScene* scene);
+    void setScene(IScene* scene);
+    void start();
 	~Game();
 private:
 	// settings
@@ -102,15 +102,11 @@ private:
     void processInput(GLFWwindow* window)
     {
         input->processInput(window, deltaTime);
-
     }
 };
-
-Game::Game(IScene* scene)
-{
-    this->scene = scene;
+void Game::start() {
     initialization();
-    std::cout << "init complete" << endl;
+    std::cout << "init complete" << std::endl;
     while (!glfwWindowShouldClose(window))
     {
         // per-frame time logic
@@ -138,6 +134,24 @@ Game::Game(IScene* scene)
     // ------------------------------------------------------------------
     glfwTerminate();
     exit(0);
+}
+
+void Game::setScene(IScene* scene) {
+    std::cout << this << std::endl;
+    if (this->scene == nullptr) 
+        std::cout << "nullptr" << std::endl;
+    else
+        this->scene = scene;    
+    //scene->setGame(this);
+    scene->setWindow(window);
+    scene->Init();
+    input = scene->getInput();
+}
+
+Game::Game(IScene* scene)
+{
+    this->scene = scene;
+    //scene->setGame(this);
 }
 
 Game::~Game()

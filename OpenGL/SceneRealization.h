@@ -36,33 +36,11 @@ private:
     // timing
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
-    std::vector<glm::vec4> *planetD;
+    std::vector<glm::vec4>* planetD;
 
     GameObject* skybox;
 public:
     void IScene::Init() {
-        /*Vertex v1;
-        v1.Position = glm::vec3(1.0f, -1.0f, 0);
-        v1.TexCoords = glm::vec2(1, 0);
-        v1.Normal = glm::vec3(0, 0, 1);
-        Vertex v2;
-        v2.Position = glm::vec3(-1.0f, 1.0f, 0);
-        v2.TexCoords = glm::vec2(0, 1);
-        v2.Normal = glm::vec3(0, 0, 1);
-        Vertex v3;
-        v3.Position = glm::vec3(-1.0f, -1.0f, 0);
-        v3.TexCoords = glm::vec2(0, 0);
-        v3.Normal = glm::vec3(0, 0, 1);
-        Vertex v4;
-        v4.Position = glm::vec3(1.0f, 1.0f, 0);
-        v4.TexCoords = glm::vec2(1, 1);
-        //v4.Normal = glm::vec3(0, 0, 1);
-        Texture t;
-        t.id = TextureFromFile("space.jpg", "resources");
-        t.type = "texture_diffuse";
-
-        Mesh m(vector<Vertex>{v1, v2, v3, v4}, vector<unsigned int>{0, 1, 2, 1, 3, 0}, vector<Texture>{t});
-        background = new GameObject(vector<Mesh>{m});*/
         vector<string> faces{
              "resources/test.jpg",
              "resources/test.jpg",
@@ -75,8 +53,9 @@ public:
         skybox = s.create();
 
         SpaceGenerator *generator = new SpaceGenerator();
-        planetD = generator->PlanetCoordCreate(10);
-        
+        planetD = new std::vector<glm::vec4>();
+        planetD = generator->PlanetCoordCreate(50);
+
         this->setInput(this);
         
         camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -93,11 +72,14 @@ public:
         ourModels = new vector<GameObject*>();
         std::vector <GameObject*> o1 = factory.loadAll();
         ourModels->insert(ourModels->begin(), o1.begin(), o1.end());
-
+       
         //camera->Position = glm::vec3(0, 10, 0);
         std::cout << ourModels->size() << "\n";
 
-
+        for (int i = 0; i < planetD->size()-1; i++) {
+            glm::vec4 c = (glm::vec4)planetD->at(i);
+            std::cout << c.x << " " << c.y << " " << c.z << " " << c.w << std::endl;
+        }
     }
 	void IScene::draw(float deltaTime) {
 
@@ -128,19 +110,22 @@ public:
         ourShader->setVec3("viewPos", glm::vec3(camera->Position.x, camera->Position.y, camera->Position.z));
 
         ourShader->setVec3("lightPos", glm::vec3(sin(f)*10, 0, cos(f)*10));
-        for (int i = 0; i < ourModels->size(); i++) {
+        
+        for (int i = 0; i < planetD->size()-1; i++) {
 
             glm::mat4 model = glm::mat4(1.0f);
             //model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
-
-            model *= ourModels->at(i)->getTransform();
-            model = glm::translate(model, glm::vec3(planetD->at(i).x, planetD->at(i).y, planetD->at(i).z));
-            model = glm::scale(model, glm::vec3(planetD->at(i).w, planetD->at(i).w, planetD->at(i).w));
+            glm::vec4 c = (glm::vec4)planetD->at(i);
+           
+            //model *= ourModels->at(i)->getTransform();
+            model = glm::translate(model, glm::vec3(c.x, c.y, c.z));
+            model = glm::scale(model, glm::vec3(c.w, c.w, c.w));
+            //model = glm::scale(model, glm::vec3(c.w, c.w, c.w));
 
             ourShader->setMat4("model", model);
 
-            ((GameObject*)ourModels->at(i))->Draw(ourShader);
+            ((GameObject*)ourModels->at(0))->Draw(ourShader);
         }
         glDepthFunc(GL_LEQUAL);
         skyBoxShader->use();
