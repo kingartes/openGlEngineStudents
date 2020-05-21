@@ -20,6 +20,9 @@
     <Filter Include="utils">
       <UniqueIdentifier>{4d84d813-8909-42a7-9934-3291acd57f4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="freefonttype2">
+      <UniqueIdentifier>{e7944023-a62c-49f3-adce-bda71c272703}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="includes\glad\glad.c">
@@ -85,6 +88,288 @@
       <Filter>scene</Filter>
     </ClInclude>
     <ClInclude Include="Square.h" />
+    <ClInclude Include="Font.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\ft2build.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\freetype.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftadvanc.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftbbox.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftbdf.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftbitmap.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftbzip2.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftcache.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftchapters.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftcid.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftcolor.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftdriver.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\fterrdef.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\fterrors.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftfntfmt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftgasp.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftglyph.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftgxval.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftgzip.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftimage.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftincrem.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftlcdfil.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftlist.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftlzw.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftmac.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftmm.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftmodapi.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftmoderr.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftotval.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftoutln.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftparams.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftpfr.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftrender.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftsizes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftsnames.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftstroke.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftsynth.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftsystem.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\fttrigon.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\fttypes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ftwinfnt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\t1tables.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\ttnameid.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\tttables.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\tttags.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\autohint.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\cffotypes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\cfftypes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftcalc.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftdebug.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftdrv.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftgloadr.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\fthash.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftmemory.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftobjs.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftpsprop.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftrfork.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftserv.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftstream.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\fttrace.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\ftvalid.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\internal.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\psaux.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\pshints.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\sfnt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\t1types.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\tttypes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\wofftypes.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svbdf.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svcfftl.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svcid.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svfntfmt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svgldict.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svgxval.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svkern.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svmetric.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svmm.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svotval.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svpfr.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svpostnm.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svprop.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svpscmap.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svpsinfo.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svsfnt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svttcmap.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svtteng.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svttglyf.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\internal\services\svwinfnt.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\config\ftconfig.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\config\ftheader.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\config\ftmodule.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\config\ftoption.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\freetype\config\ftstdlib.h">
+      <Filter>freefonttype2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Vertex.vs">
@@ -100,6 +385,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\skybox.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\PixelText.ps">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\VertexText.vs">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

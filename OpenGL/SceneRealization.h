@@ -15,13 +15,13 @@
 #include "ParallelogramLoader.h"
 #include "SpaceGenerator.h"
 #include "SkyBox.h"
+
 class SceneRealization :
 	public IScene, public IInput
 {
 private:
 	Shader *ourShader;
     Shader* skyBoxShader;
-
     std::vector<GameObject*> *ourModels;
 
     Camera *camera;
@@ -63,9 +63,9 @@ public:
         
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.fs");
         skyBoxShader = new Shader("shaders/skybox.vs", "shaders/skybox.fs");
-        
+
+
         std::vector<string> paths = {"resources/5/scene.gltf"};
-        
         
         GameObjectModelLoadedFactory factory(paths, ourShader);
 
@@ -84,7 +84,6 @@ public:
 	void IScene::draw(float deltaTime) {
 
         f += 0.005;
-
 
         //backgroundShader->use();
 
@@ -127,6 +126,7 @@ public:
 
             ((GameObject*)ourModels->at(0))->Draw(ourShader);
         }
+
         glDepthFunc(GL_LEQUAL);
         skyBoxShader->use();
 
@@ -176,3 +176,4 @@ public:
     void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     }
 };
+
