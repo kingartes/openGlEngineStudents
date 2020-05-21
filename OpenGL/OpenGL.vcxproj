@@ -95,11 +95,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;assimp-vc142-mt.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <NoEntryPoint />
       <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SpaceGenerator.h" />
     <ClInclude Include="ParallelogramLoader.h" />
@@ -161,8 +162,6 @@
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="SceneRealization.h" />
     <ClInclude Include="shaders\Shader.h" />
-    <ClInclude Include="Font.h" />
-    <ClInclude Include="FontLoader.h" />
     <ClInclude Include="TextLoaderFactory.h" />
   </ItemGroup>
   <ItemGroup>

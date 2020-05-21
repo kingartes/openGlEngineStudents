@@ -84,9 +84,6 @@
     <ClInclude Include="TextLoaderFactory.h">
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="FontLoader.h">
-      <Filter>utils</Filter>
-    </ClInclude>
     <ClInclude Include="Font.h">
       <Filter>utils</Filter>
     </ClInclude>

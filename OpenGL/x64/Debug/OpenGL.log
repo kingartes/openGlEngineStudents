@@ -1,7 +1,4 @@
-﻿  glad.c
-  test-json.c
-  Создание кода...
-  main.cpp
+﻿  main.cpp
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\ModelLoader.h(98,23): warning C4101: vector: неиспользованная локальная переменная
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(37,34): warning C4244: =: преобразование "int" в "T", возможна потеря данных
           with
@@ -20,18 +17,16 @@ D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(39,34): warning C
           ]
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(70,21): warning C4244: инициализация: преобразование "uint64_t" в "uint32_t", возможна потеря данных
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SpaceGenerator.h(72,21): warning C4244: инициализация: преобразование "uint64_t" в "uint32_t", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(104,1): warning C4305: +=: усечение из "double" в "float"
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(175,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(176,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(180,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(181,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(183,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(184,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(189,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(109,1): warning C4305: +=: усечение из "double" в "float"
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(181,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(182,21): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(186,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(187,23): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(189,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(190,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(195,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(252,33): warning C4838: Преобразование из "FT_Pos" в "unsigned int" требует сужающего преобразования.
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(97,32): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(97,25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Game.h(118,28): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-  Mesh.cpp
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\Mesh.cpp(43,72): warning C4267: аргумент: преобразование из "size_t" в "GLsizei"; возможна потеря данных
-  Создание кода...
   OpenGL.vcxproj -> D:\Projects\C++\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
