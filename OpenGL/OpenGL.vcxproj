@@ -147,7 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camerar.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="FontFactory.h" />
+    <ClInclude Include="FontLoader.h" />
     <ClInclude Include="includes\freetype\config\ftconfig.h" />
     <ClInclude Include="includes\freetype\config\ftheader.h" />
     <ClInclude Include="includes\freetype\config\ftmodule.h" />

@@ -370,6 +370,15 @@
     <ClInclude Include="includes\freetype\config\ftstdlib.h">
       <Filter>freefonttype2</Filter>
     </ClInclude>
+    <ClInclude Include="FontLoader.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FontFactory.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\Vertex.vs">

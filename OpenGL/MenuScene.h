@@ -12,8 +12,7 @@
 #include "ModelLoader.h"
 #include "SceneRealization.h"
 #include "Square.h"
-#include "Font.h"
-map<char, Character> loadFont(const char* path, int size);
+#include "FontFactory.h"
 
 class MenuScene:
     public IScene, public IInput
@@ -46,7 +45,9 @@ public:
         ourShader = new Shader("shaders/Vertex.vs", "shaders/Pixel.fs");
         textShader = new Shader("shaders/VertexText.vs", "shaders/PixelText.ps");
 
-        font = new Font(loadFont("Arimo-Regular.ttf", 128));
+        FontFactory test = FontFactory({ "Arimo-Regular.ttf" });
+        std::vector<Font*> fonts = test.loadAll();
+        font = fonts[0];
 
         std::vector<string> paths = { "resources/5/scene.gltf" };
 
@@ -116,63 +117,3 @@ public:
     void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     }
 };
-
-map<char, Character> loadFont(const char* path, int size)
-{
-    map<char, Character> Characters;
-    FT_Library ft;
-    FT_Face face;
-
-    if (FT_Init_FreeType(&ft))
-        std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
-
-    if (FT_New_Face(ft, path, 0, &face))
-        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-
-    FT_Set_Pixel_Sizes(face, 0, size);
-
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // disable byte-alignment restriction
-
-    for (unsigned char c = 0; c < 128; c++)
-    {
-        // load character glyph 
-        if (FT_Load_Char(face, c, FT_LOAD_RENDER))
-        {
-            std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
-            continue;
-        }
-
-        // generate texture
-        unsigned int texture;
-        glGenTextures(1, &texture);
-        glBindTexture(GL_TEXTURE_2D, texture);
-        glTexImage2D(
-            GL_TEXTURE_2D,
-            0,
-            GL_RED,
-            face->glyph->bitmap.width,
-            face->glyph->bitmap.rows,
-            0,
-            GL_RED,
-            GL_UNSIGNED_BYTE,
-            face->glyph->bitmap.buffer
-        );
-
-        // set texture options
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        Character character = {
-            texture,
-            glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-            glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-            face->glyph->advance.x
-        };
-        Characters.insert(std::pair<char, Character>(c, character));
-    }
-    FT_Done_Face(face);
-    FT_Done_FreeType(ft);
-    return Characters;
-}

@@ -1,26 +1,19 @@
 #pragma once
-#include "includes/glm/vec2.hpp"
 #include "includes/glm/mat4x4.hpp"
 #include "includes/glm/gtc/matrix_transform.hpp"
 #include <../shaders/shader.h>
+#include "Character.h"
 
 #include <map>
 #include "includes/ft2build.h"
 #include FT_FREETYPE_H 
 
-struct Character {
-    unsigned int TextureID;  // ID handle of the glyph texture
-    glm::ivec2   Size;       // Size of glyph
-    glm::ivec2   Bearing;    // Offset from baseline to left/top of glyph
-    unsigned int Advance;    // Offset to advance to next glyph
-};
-
 class Font
 {
 public:
-    Font() { };
+    Font() { }
     Font(std::map<char, Character> c) : Characters(c) { setBuffers(); }
-    ~Font() { delete &Characters; };
+    ~Font() { }
     void drawText(Shader& shader, std::string text, float x, float y, float scale, glm::vec3 color);
 
 private:

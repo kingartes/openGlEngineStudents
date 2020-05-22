@@ -28,6 +28,6 @@ D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(166,23): warnin
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(168,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(169,17): warning C4244: =: преобразование "double" в "float", возможна потеря данных
 D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\SceneRealization.h(174,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\MenuScene.h(172,33): warning C4838: Преобразование из "FT_Pos" в "unsigned int" требует сужающего преобразования.
+D:\Projects\C++\AllOpenGLs\MainProject\OpenGL\FontLoader.h(73,33): warning C4838: Преобразование из "FT_Pos" в "unsigned int" требует сужающего преобразования.
 LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
   OpenGL.vcxproj -> D:\Projects\C++\AllOpenGLs\MainProject\x64\Debug\OpenGL.exe
